@@ -51,6 +51,7 @@ const IntroScreen = ({ onComplete }) => {
 
 function App() {
   const [introFinished, setIntroFinished] = useState(false);
+  const [currentView, setCurrentView] = useState('home'); // 'home', 'projects', 'omega-project'
 
   return (
     <>
@@ -66,7 +67,7 @@ function App() {
       
       {introFinished && (
         <div className="ui-container">
-          <OverlayUI />
+          <OverlayUI currentView={currentView} setCurrentView={setCurrentView} />
         </div>
       )}
     </>
