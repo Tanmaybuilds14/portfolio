@@ -61,7 +61,7 @@ function App() {
       
       <div className="canvas-container">
         <Suspense fallback={null}>
-          <Scene introFinished={introFinished} />
+          <Scene introFinished={introFinished} currentView={currentView} />
         </Suspense>
       </div>
       
