@@ -113,7 +113,7 @@ const AboutView = ({ setCurrentView }) => {
           minHeight: '400px'
         }}>
           <div style={{ marginBottom: '1.5rem', display: 'flex', gap: '0.75rem' }}>
-            <span style={{ color: '#22c55e', fontWeight: 'bold' }}>johndoe@system:~$</span>
+            <span style={{ color: '#22c55e', fontWeight: 'bold' }}>tanmaysarve@system:~$</span>
             <span style={{ color: '#e2e8f0' }}>cat about_me.txt</span>
           </div>
           
@@ -127,7 +127,7 @@ const AboutView = ({ setCurrentView }) => {
               animate={{ opacity: 1 }}
               style={{ display: 'flex', gap: '0.75rem' }}
             >
-              <span style={{ color: '#22c55e', fontWeight: 'bold' }}>johndoe@system:~$</span>
+              <span style={{ color: '#22c55e', fontWeight: 'bold' }}>tanmaysarve@system:~$</span>
               <motion.span 
                 animate={{ opacity: [1, 0, 1] }} 
                 transition={{ repeat: Infinity, duration: 1 }}
