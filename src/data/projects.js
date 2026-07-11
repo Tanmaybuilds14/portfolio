@@ -40,7 +40,7 @@ export const projectsData = {
     title: 'Jobportal',
     subtitle: 'A modern job search platform that will help job seekers connect with the companies, featuring slick animations and a clean layout.',
     liveUrl: 'https://adshub-io.vercel.app/',
-    image: '/adshub-1.png',
+    image: '/jobportal.png',
     tags: ['React', 'TailwindCSS', 'Express/Node.js'],
     overview: [
       'JobPortal is built for students and job seekers to connect them with the companies and potential employers',
