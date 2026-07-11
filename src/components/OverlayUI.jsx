@@ -69,7 +69,7 @@ const OverlayUI = ({ currentView, setCurrentView }) => {
                 <button onClick={() => setCurrentView('projects')} className="btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   View Projects <ExternalLink size={18} />
                 </button>
-                <button className="btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <button onClick={() => setCurrentView('contact')} className="btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   Contact Me
                 </button>
               </div>
@@ -111,7 +111,7 @@ const OverlayUI = ({ currentView, setCurrentView }) => {
             <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Connect</p>
             <div style={{ display: 'flex', gap: '1rem' }}>
               <a href="https://www.linkedin.com/in/tanmay-sarve-29a384391/" className="social-icon"><Globe size={20} /></a>
-              <a href="mailto:sarvetanmay276@gmail.com" className="social-icon"><Mail size={20} /></a>
+              <button onClick={() => setCurrentView('contact')} className='social-icon'> <Mail size={20} /></button>
             </div>
           </div>
 
@@ -121,6 +121,9 @@ const OverlayUI = ({ currentView, setCurrentView }) => {
               <span style={{ fontSize: '0.9rem', fontWeight: 500 }}>Node.js/Express.js</span>/
               <span style={{ fontSize: '0.9rem', fontWeight: 500 }}>React</span>/
               <span style={{ fontSize: '0.9rem', fontWeight: 500 }}>MongoDB</span>/
+              <span style={{ fontSize: '0.9rem', fontWeight: 500 }}>Postgres</span>/
+              <span style={{ fontSize: '0.9rem', fontWeight: 500 }}>Firebase</span>/
+              <span style={{ fontSize: '0.9rem', fontWeight: 500 }}>supabase</span>/
             </div>
           </div>
         </motion.footer>
