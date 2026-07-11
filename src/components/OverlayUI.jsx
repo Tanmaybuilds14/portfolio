@@ -111,7 +111,7 @@ const OverlayUI = ({ currentView, setCurrentView }) => {
             <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Connect</p>
             <div style={{ display: 'flex', gap: '1rem' }}>
               <a href="https://www.linkedin.com/in/tanmay-sarve-29a384391/" className="social-icon"><Globe size={20} /></a>
-              <a href="sarvetanmay276@gmail.com" className="social-icon"><Mail size={20} /></a>
+              <a href="https://mail.google.com/sarvetanmay276@gmail.com" className="social-icon"><Mail size={20} /></a>
             </div>
           </div>
 
