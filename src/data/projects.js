@@ -35,11 +35,11 @@ export const projectsData = {
       { title: 'Modern Typography', desc: 'Clean, legible fonts that convey professionalism and trust.' }
     ]
   },
-  'JobPortal':{
+  'JobPortal': {
     id: 'job-application-portal',
     title: 'Jobportal',
     subtitle: 'A modern job search platform that will help job seekers connect with the companies, featuring slick animations and a clean layout.',
-    liveUrl: 'https://adshub-io.vercel.app/',
+    liveUrl: 'https://jobportal-seven-chi.vercel.app/',
     image: '/jobportal.png',
     tags: ['React', 'TailwindCSS', 'Express/Node.js'],
     overview: [
