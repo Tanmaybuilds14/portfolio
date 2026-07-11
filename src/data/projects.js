@@ -35,7 +35,7 @@ export const projectsData = {
       { title: 'Modern Typography', desc: 'Clean, legible fonts that convey professionalism and trust.' }
     ]
   },
-  'JobPortal': {
+  'job-application-portal': {
     id: 'job-application-portal',
     title: 'Jobportal',
     subtitle: 'A modern job search platform that will help job seekers connect with the companies, featuring slick animations and a clean layout.',
