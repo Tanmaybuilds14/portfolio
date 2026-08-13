@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Globe, Terminal, ExternalLink } from 'lucide-react';
+import { Mail, Globe, ExternalLink } from 'lucide-react';
 import ProjectsView from './ProjectsView';
 import ProjectPage from './ProjectPage';
 import AboutView from './AboutView';

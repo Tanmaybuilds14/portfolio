@@ -5,7 +5,7 @@ export const projectsData = {
     subtitle: 'A high-tech, dark-themed developer tool landing page. Built to demonstrate advanced 3D integrations within a modern React application.',
     liveUrl: 'https://3-d-website-omega.vercel.app/',
     image: '/omega-1.png',
-    tags: ['html5', 'javascrpt', 'CSS3', 'Spline', 'Vercel'],
+    tags: ['HTML5', 'JavaScript', 'CSS3', 'Spline', 'Vercel'],
     overview: [
       'The Omega project explores the "Modern Developer Tool" aesthetic, characterized by a deep dark theme, high-contrast typography, and a minimalist grid background. The centerpiece is a 3D animated robot model, flanked by floating 3D text labels "Front" and "End", suggesting a highly automated or full-stack service.',
       'The site is a single-viewport experience where 3D assets respond fluidly to window resizing, maintaining an impactful and immersive hero section at all times.'
