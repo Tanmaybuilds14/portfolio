@@ -49,17 +49,14 @@ export function Nav() {
         <Link
           to="/"
           onClick={() => setOpen(false)}
-          className="group flex items-center gap-2.5"
+          className="group flex flex-col justify-center leading-none"
           aria-label={`${site.name} — home`}
         >
-          <span className="border-signal/35 bg-signal/10 text-signal group-hover:bg-signal group-hover:text-background grid size-8 place-items-center rounded-lg border font-mono text-[0.7rem] transition-colors">
-            TS
+          <span className="text-[0.95rem] font-medium tracking-[-0.02em] transition-colors group-hover:text-white">
+            {site.name}
           </span>
-          <span className="flex flex-col leading-tight">
-            <span className="text-[0.9rem] font-medium tracking-tight">{site.name}</span>
-            <span className="text-muted-foreground font-mono text-[0.6rem] tracking-[0.12em] uppercase">
-              {site.focus}
-            </span>
+          <span className="text-muted-foreground mt-1 font-mono text-[0.58rem] tracking-[0.14em] uppercase">
+            {site.focus}
           </span>
         </Link>
 

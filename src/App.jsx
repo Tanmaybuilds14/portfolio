@@ -5,6 +5,7 @@ import { Nav } from '@/components/nav';
 import { Footer } from '@/components/footer';
 import { ScrollProgress } from '@/components/motion/scroll-progress';
 import StructuredData from '@/components/StructuredData';
+import { SiteBackdrop } from '@/components/backgrounds/site-backdrop';
 import Home from '@/pages/home';
 import Work from '@/pages/work';
 import ProjectDetail from '@/pages/project-detail';
@@ -45,6 +46,7 @@ export default function App() {
   return (
     <>
       <StructuredData />
+      <SiteBackdrop />
       <ScrollProgress />
       <a
         href="#main"
