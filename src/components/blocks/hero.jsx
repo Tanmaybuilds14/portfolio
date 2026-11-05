@@ -4,7 +4,6 @@ import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { hero, site } from '@/data/site';
 import { Button } from '@/components/ui/button';
 import { SplitText } from '@/components/motion/split-text';
-import { GridBackground } from '@/components/backgrounds/grid-background';
 import { Marquee } from '@/components/blocks/marquee';
 
 const EASE = [0.16, 1, 0.3, 1];
@@ -15,14 +14,14 @@ export function Hero({ now }) {
   const reduced = useReducedMotion();
 
   return (
-    <GridBackground className="border-border border-b" cellSize={76}>
+    <div className="border-border relative border-b">
       <div className="page-shell grid items-end gap-10 pt-28 pb-12 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-14 lg:pt-36 lg:pb-16">
         <div>
           <motion.div
             initial={reduced ? false : { opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: EASE }}
-            className="border-border bg-card/60 inline-flex items-center gap-2.5 rounded-full border py-1.5 pr-3.5 pl-2.5"
+            className="border-border glass inline-flex items-center gap-2.5 rounded-full border py-1.5 pr-3.5 pl-2.5"
           >
             <span className="relative flex size-1.5">
               <span className="bg-signal absolute inline-flex size-full animate-ping rounded-full opacity-60 motion-reduce:hidden" />
@@ -45,7 +44,7 @@ export function Hero({ now }) {
             initial={reduced ? false : { opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.8, ease: EASE }}
-            className="text-foreground/75 mt-2 text-[clamp(2.1rem,6.4vw,4.4rem)] leading-[1] font-light tracking-[-0.04em] text-balance"
+            className="text-foreground/70 mt-2 text-[clamp(2.1rem,6.4vw,4.4rem)] leading-[1] font-light tracking-[-0.04em] text-balance"
           >
             <span className="text-foreground/70">{hero.emphasis}</span>
           </motion.p>
@@ -54,7 +53,7 @@ export function Hero({ now }) {
             initial={reduced ? false : { opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.9, ease: EASE }}
-            className="text-muted-foreground mt-7 max-w-[54ch] text-[1.02rem] leading-relaxed"
+            className="text-foreground/75 mt-7 max-w-[54ch] text-[1.02rem] leading-relaxed"
           >
             {site.intro}
           </motion.p>
@@ -86,7 +85,7 @@ export function Hero({ now }) {
           >
             <Link
               to={`/work/${now.slug}`}
-              className="group border-border bg-card/60 hover:border-foreground/25 hover:bg-card block rounded-2xl border p-5 transition-colors"
+              className="group border-border glass hover:border-foreground/25 block rounded-2xl border p-5 transition-colors"
             >
               <div className="flex items-center justify-between">
                 <span className="eyebrow">Now building</span>
@@ -138,6 +137,6 @@ export function Hero({ now }) {
           </Marquee>
         </div>
       </div>
-    </GridBackground>
+    </div>
   );
 }

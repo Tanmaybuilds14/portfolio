@@ -15,9 +15,22 @@ neutral palette, and motion used sparingly.
 | Components | shadcn/ui — Radix primitives + `cva` |
 | Scroll & reveal | [motion.dev](https://motion.dev) (`motion/react`) |
 | Text & counters | [anime.js v4](https://animejs.com) |
-| Backgrounds | 21st.dev patterns (grid, dot-grid, aurora, marquee) |
+| Backgrounds | Fixed photographic backdrop + 21st.dev patterns (grid, dot-grid, aurora, marquee) |
 | Type | Geist + Geist Mono, self-hosted via `@fontsource` |
 | Icons | `lucide-react` |
+
+## Backdrop
+
+A generated dark alpine ridge sits behind the whole app (`public/backdrop.webp`,
+1920px, 47 kB; a 10 kB portrait crop for phones). `src/components/backgrounds/site-backdrop.jsx`
+stacks the photograph with a three-layer scrim — a vertical gradient that keeps the
+top readable and fades to near-black past the fold, plus a radial vignette. Text
+contrast was sampled against the composited result and clears WCAG AA
+(5.6–8.3:1) across the hero.
+
+To swap the image, replace `public/backdrop.webp` and `public/backdrop-mobile.webp`.
+If you change the crop, re-check the hero: the scrim assumes the ridge sits in the
+lower half and open sky in the top third.
 
 ## Theme
 
@@ -55,7 +68,8 @@ src/
   that array. Projects without a screenshot get a generated SVG plate keyed by
   `mark` (`collab`, `orbit`, `wave`, `grid`, `box`, `spark`).
 - **Identity, links, skills** — `src/data/site.js`.
-- **Palette** — `.dark` block in `src/index.css`.
+- **Palette** — `.dark` block in `src/index.css` (the `dark` class lives on `<html>`).
+- **Backdrop image** — `public/backdrop.webp` + `backdrop-mobile.webp`.
 
 ## Development
 

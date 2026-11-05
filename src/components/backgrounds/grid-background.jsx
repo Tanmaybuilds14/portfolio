@@ -1,11 +1,12 @@
 /*
  * Grid + radial spotlight — 21st.dev background pattern used behind hero
  * sections. Pure CSS, no canvas: a faint 1px grid masked to an ellipse, plus a
- * large radial glow anchored top-right.
+ * large radial glow. Transparent by default so the fixed photographic backdrop
+ * reads through it; pass `solid` when it needs to stand on its own.
  */
 import { cn } from '@/lib/utils';
 
-export function GridBackground({ className, children, cellSize = 72, glow = 'top-right' }) {
+export function GridBackground({ className, children, cellSize = 72, glow = 'top-right', solid = false }) {
   const glowPosition =
     glow === 'top-right'
       ? 'ellipse 60% 55% at 85% 0%'
@@ -14,7 +15,7 @@ export function GridBackground({ className, children, cellSize = 72, glow = 'top
         : 'ellipse 70% 60% at 50% 0%';
 
   return (
-    <div className={cn('relative isolate overflow-hidden', className)}>
+    <div className={cn('relative isolate overflow-hidden', solid && 'bg-background', className)}>
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
