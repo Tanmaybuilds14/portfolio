@@ -1,0 +1,19 @@
+.notfound__inner {
+  min-height: 52vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  max-width: 720px;
+}
+
+.notfound__title {
+  margin-block: 0.25rem;
+}
+
+.notfound__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
