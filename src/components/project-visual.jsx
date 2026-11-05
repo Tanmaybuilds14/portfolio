@@ -4,9 +4,9 @@
  * everything else gets a geometric "spec plate" drawn in SVG.
  * All coordinates below live in a 100 × 100 viewBox.
  */
+import { cn } from '@/lib/utils';
 
 const art = {
-  // Two carets inside a shared paragraph — collaboration
   collab: ({ accent }) => (
     <g>
       <rect x="18" y="24" width="64" height="52" rx="4" fill={accent} fillOpacity="0.06" />
@@ -24,8 +24,6 @@ const art = {
       <rect x="64" y="17" width="12" height="5" rx="2.5" fill="#ffffff" fillOpacity="0.5" />
     </g>
   ),
-
-  // Application lifecycle — concentric orbits
   orbit: ({ accent }) => (
     <g fill="none" stroke={accent}>
       <ellipse cx="50" cy="50" rx="34" ry="15" strokeOpacity="0.38" />
@@ -38,14 +36,11 @@ const art = {
       <circle cx="31" cy="62" r="2" fill={accent} stroke="none" fillOpacity="0.6" />
     </g>
   ),
-
-  // Spend curve — audit waves
   wave: ({ accent }) => (
     <g fill="none" strokeLinecap="round">
       <g stroke="#ffffff" strokeOpacity="0.12" strokeWidth="0.6">
         <path d="M14 26H86" />
         <path d="M14 74H86" />
-        <path d="M14 26V74" strokeOpacity="0.06" />
       </g>
       <path
         d="M14 62C24 62 26 36 38 36C50 36 50 68 62 68C74 68 76 46 86 46"
@@ -62,8 +57,6 @@ const art = {
       <circle cx="62" cy="68" r="2" fill={accent} stroke="none" />
     </g>
   ),
-
-  // Dense layout grid — interface engineering
   grid: ({ accent }) => (
     <g>
       {Array.from({ length: 9 }).map((_, row) =>
@@ -94,8 +87,6 @@ const art = {
       />
     </g>
   ),
-
-  // Isometric cube — 3D study
   box: ({ accent }) => (
     <g fill="none" stroke={accent} strokeLinejoin="round">
       <path d="M50 30L74 43v22L50 78L26 65V43Z" strokeWidth="1.1" strokeOpacity="0.8" />
@@ -105,8 +96,6 @@ const art = {
       <circle cx="50" cy="56" r="1.6" fill={accent} stroke="none" />
     </g>
   ),
-
-  // Radial burst — generative output
   spark: ({ accent }) => (
     <g stroke={accent} strokeLinecap="round" fill="none">
       <circle cx="50" cy="50" r="13" stroke="#ffffff" strokeOpacity="0.18" />
@@ -131,23 +120,31 @@ const art = {
   ),
 };
 
-export default function ProjectVisual({ project, className = '', priority = false }) {
-  const accent = project.accent ?? '#c9f67a';
+export function ProjectVisual({ project, className, priority = false, compact = false }) {
+  const accent = project.accent ?? 'oklch(0.88 0.2 124)';
 
   return (
     <div
-      className={`visual ${project.image ? 'visual--image' : 'visual--plate'} ${className}`}
-      style={{ '--visual-accent': accent }}
+      className={cn(
+        'group/visual border-border relative w-full overflow-hidden rounded-xl border',
+        project.image ? 'bg-card' : 'aspect-[16/10] bg-[#0a0c0d]',
+        className,
+      )}
+      style={{
+        backgroundImage: project.image
+          ? undefined
+          : `radial-gradient(120% 90% at 50% 0%, color-mix(in oklab, ${accent} 18%, transparent), transparent 70%)`,
+      }}
     >
       {project.image ? (
-        <div className="visual__browser">
-          <div className="visual__chrome" aria-hidden="true">
-            <span className="visual__dots">
-              <i />
-              <i />
-              <i />
+        <div className="flex flex-col">
+          <div className="border-border/60 bg-secondary/30 flex items-center gap-2 border-b px-3 py-1.5">
+            <span className="flex gap-[3px]" aria-hidden="true">
+              {['bg-foreground/15', 'bg-foreground/15', 'bg-foreground/15'].map((tone, i) => (
+                <i key={i} className={cn('size-[5px] rounded-full', tone)} />
+              ))}
             </span>
-            <span className="visual__url">
+            <span className="text-muted-foreground/80 truncate font-mono text-[0.58rem] tracking-wide">
               {new URL(project.liveUrl ?? 'https://example.com').host}
             </span>
           </div>
@@ -156,17 +153,38 @@ export default function ProjectVisual({ project, className = '', priority = fals
             alt={`${project.title} — interface preview`}
             loading={priority ? 'eager' : 'lazy'}
             decoding="async"
+            className="h-auto w-full transition-transform duration-700 ease-out group-hover/card:scale-[1.02]"
           />
         </div>
       ) : (
-        <div className="visual__plate">
-          <span className="visual__label mono">
+        <div
+          className="absolute inset-0 grid grid-rows-[auto_1fr_auto] p-3.5"
+          style={{
+            backgroundImage:
+              'linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)',
+            backgroundSize: '34px 34px',
+          }}
+        >
+          <span className="text-muted-foreground/70 justify-self-start font-mono text-[0.56rem] tracking-[0.16em] uppercase">
             {project.title} <span aria-hidden="true">·</span> {project.category}
           </span>
-          <svg viewBox="0 0 100 100" role="img" aria-label={`${project.title} — abstract diagram`}>
+          <svg
+            viewBox="0 0 100 100"
+            role="img"
+            aria-label={`${project.title} — abstract diagram`}
+            className={cn(
+              'h-full w-full transition-transform duration-700 ease-out group-hover/card:scale-[1.04]',
+              compact ? 'px-6 py-4' : 'px-10 py-6',
+            )}
+          >
             {(art[project.mark] ?? art.grid)({ accent })}
           </svg>
-          <span className="visual__foot mono">{project.year}</span>
+          <span
+            className="justify-self-end font-mono text-[0.56rem] tracking-[0.16em] uppercase"
+            style={{ color: `color-mix(in oklab, ${accent} 80%, white)` }}
+          >
+            {project.year}
+          </span>
         </div>
       )}
     </div>

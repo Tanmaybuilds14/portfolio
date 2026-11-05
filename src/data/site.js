@@ -1,3 +1,9 @@
+export const hero = {
+  lineOne: 'I build the parts',
+  lineTwo: 'of the web that',
+  emphasis: 'have to work.',
+};
+
 export const site = {
   name: 'Tanmay Sarve',
   firstName: 'Tanmay',

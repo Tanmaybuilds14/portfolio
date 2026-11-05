@@ -2,6 +2,7 @@ export const projects = [
   {
     slug: 'inkwell',
     category: 'Realtime & systems',
+    heroNote: 'A sync service in its own process, Redis fan-out and server-enforced permissions.',
     title: 'Inkwell',
     tagline: 'Two people. One paragraph. Zero conflicts.',
     summary:
